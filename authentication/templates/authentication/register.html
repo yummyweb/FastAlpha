@@ -1,0 +1,35 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+
+{% block title %}
+   Register 
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock styles %}
+
+{% block body %}
+    <section class="register-clean">
+        <form method="post">
+            {% csrf_token %}
+            <h2 class="visually-hidden">Register Form</h2>
+            <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
+            <div class="mb-3">
+                <input class="form-control" type="text" name="username" placeholder="Username" />
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="email" name="email" placeholder="Email" />
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="password" name="password" placeholder="Password" />
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="formCheck-1" name="is_investor" /><label class="form-check-label" for="formCheck-1">Investor</label>
+            </div>
+            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Register</button></div><a class="forgot" href="{% url 'Login' %}">Don't have an account?</a>
+        </form>
+    </section>
+{% endblock body %}
+    
+    

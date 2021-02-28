@@ -1,0 +1,24 @@
+{% extends 'products/base.html' %}
+
+{% block title %}
+   Company 
+{% endblock title %}
+
+{% block body %}
+   <div class="row">
+      <div class="col">
+         <div class="card">
+            <img src="{{ company.header.url }}" height="100" class="card-img-top w-100 d-block" />
+            <div class="card-body">
+                  <h4 class="card-title">{{ company.name }}</h4>
+                  <small class="fst-italic">Company created by {{ company.user.username }}</small>
+                  <p class="card-text mt-1">{{ company.description }}</p>
+                  <a href="#" class="btn btn-primary" type="button">Invest</a>
+            </div>
+         </div>
+      </div>
+   </div>
+{% endblock body %}
+   
+
+    

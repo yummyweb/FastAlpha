@@ -1,0 +1,26 @@
+{% extends 'authentication/base.html' %}
+{% load static %}
+
+{% block title %}
+   User 
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/user.css' %}">
+{% endblock styles %}
+
+{% block body %}
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col">
+                <h3>{{ user.username }}</h3>
+                
+                {% if user.is_investor %}
+                    <span class="badge bg-success">Investor</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+    
+    

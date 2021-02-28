@@ -1,0 +1,31 @@
+{% extends 'products/base.html' %}
+
+{% block title %}
+   Products 
+{% endblock title %}
+
+{% block body %}
+   <div class="container mt-4">
+      <div class="row height d-flex justify-content-center align-items-center">
+         <div class="col-md-8">
+            <div class="search">
+               <input type="text" class="form-control" placeholder="Search your favorite products"> <button class="btn btn-primary">Search</button> 
+            </div>
+         </div>
+      </div>
+      <div class="products-holder mt-5">
+         {% for product in products %}
+            <div class="product row justify-content-center mt-2">
+               <div class="card w-50 text-center p-3">
+                  <div class="card-block">
+                     <img src="{{ product.image.url }}" class="rounded" style="max-width: 6em; max-height: 6em;" alt="{{ product.name }}">
+                     <h3 class="card-title mt-3">{{ product.name }}</h3>
+                     <p class="product-description">{{ product.description }}</p>
+                  </div>
+               </div>
+            </div>
+         {% endfor %}
+      </div>
+   </div>
+{% endblock body %}
+   
