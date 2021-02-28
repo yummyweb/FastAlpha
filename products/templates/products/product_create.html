@@ -1,0 +1,36 @@
+{% extends 'products/base.html' %}
+{% load static %}
+
+{% block title %}
+    Create Product
+{% endblock title %}
+
+{% block body %}
+    <section class="company-clean">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2 class="visually-hidden">Product Form</h2>
+            <div class="illustration"><i class="icon ion-ios-people"></i></div>
+            <div class="mb-3">
+                <input class="form-control" type="text" name="name" placeholder="Product Name" />
+            </div>
+            <div class="mb-3">
+                <input class="form-control" type="text" name="company" placeholder="Company Name" />
+            </div
+            <div class="mb-3">
+                <textarea name="description" class="form-control" placeholder="Product Description" cols="30" rows="10"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="logo">Product Image</label>
+                <input type="file" name="logo" id="logo">
+            </div>
+            <div class="mb-3">
+                <label for="header">Product Video</label>
+                <input type="file" name="header" id="header">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary d-block w-100" type="submit">Create Product</button>
+            </div>
+        </form>
+    </section>
+{% endblock body %}

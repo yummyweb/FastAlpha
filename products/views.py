@@ -54,10 +54,7 @@ def Products(request):
 def ProductCreate(request):
     if request.method == "POST":
         files = request.FILES
-        newProduct = Product.objects.create(request.POST['name'], request.POST['description'])
-        newProduct.image = files['image']
-        newProduct.video = files['video']
-        newProduct.company = request.POST['company']
+        newProduct = Product.objects.create(name=request.POST['name'], description=request.POST['description'], company=Company.objects.get(name=request.POST['company']), image=files.get('image'), video=files.get('video'))
         newProduct.save()
 
     return render(request, 'products/product_create.html')
